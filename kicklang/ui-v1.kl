@@ -1,0 +1,38 @@
+# UI-Elemente definieren
+element Button {
+  type: "button"
+  id: "submit-btn"
+  label: "Submit"
+  events: {
+    onClick: "submitForm"
+  }
+}
+
+element TextField {
+  type: "text"
+  id: "name-input"
+  label: "Name"
+  value: ""
+  events: {
+    onChange: "updateName"
+  }
+}
+
+# Container-Elemente definieren
+container Form {
+  id: "main-form"
+  elements: [
+    { type: "TextField", id: "name-input" },
+    { type: "Button", id: "submit-btn" }
+  ]
+  events: {
+    onSubmit: "processForm"
+  }
+}
+
+# UI-Struktur definieren
+ui MainUI {
+  containers: [
+    { type: "Form", id: "main-form" }
+  ]
+}

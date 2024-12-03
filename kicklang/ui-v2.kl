@@ -1,0 +1,94 @@
+# UI-Elemente definieren
+element Button {
+  type: "button"
+  id: "submit-btn"
+  label: "Submit"
+  events: {
+    onClick: "submitForm"
+  }
+}
+
+element TextField {
+  type: "text"
+  id: "name-input"
+  label: "Name"
+  value: ""
+  events: {
+    onChange: "updateName"
+  }
+}
+
+element Checkbox {
+  type: "checkbox"
+  id: "terms-checkbox"
+  label: "Accept Terms and Conditions"
+  checked: false
+  events: {
+    onChange: "acceptTerms"
+  }
+}
+
+element RadioGroup {
+  type: "radio-group"
+  id: "gender-radio-group"
+  label: "Gender"
+  options: [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "Other" }
+  ]
+  selectedValue: ""
+  events: {
+    onChange: "selectGender"
+  }
+}
+
+element Select {
+  type: "select"
+  id: "country-select"
+  label: "Country"
+  options: [
+    { value: "usa", label: "United States" },
+    { value: "canada", label: "Canada" },
+    { value: "mexico", label: "Mexico" }
+  ]
+  selectedValue: ""
+  events: {
+    onChange: "selectCountry"
+  }
+}
+
+element Slider {
+  type: "slider"
+  id: "age-slider"
+  label: "Age"
+  min: 18
+  max: 65
+  value: 30
+  events: {
+    onChange: "updateAge"
+  }
+}
+
+# Container-Elemente definieren
+container Form {
+  id: "main-form"
+  elements: [
+    { type: "TextField", id: "name-input" },
+    { type: "Checkbox", id: "terms-checkbox" },
+    { type: "RadioGroup", id: "gender-radio-group" },
+    { type: "Select", id: "country-select" },
+    { type: "Slider", id: "age-slider" },
+    { type: "Button", id: "submit-btn" }
+  ]
+  events: {
+    onSubmit: "processForm"
+  }
+}
+
+# UI-Struktur definieren
+ui MainUI {
+  containers: [
+    { type: "Form", id: "main-form" }
+  ]
+}
